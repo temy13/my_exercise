@@ -1,0 +1,1 @@
+<p><?php echo Html::anchor('login/login', 'ログイン画面へ戻る'); ?></p>
