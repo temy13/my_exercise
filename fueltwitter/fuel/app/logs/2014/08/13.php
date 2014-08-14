@@ -1078,50 +1078,60 @@ INFO - 2014-08-13 20:47:30 --> 2014-08-13 20:47:20
 INFO - 2014-08-13 20:47:38 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
 INFO - 2014-08-13 20:47:38 --> Fuel\Core\Request::execute - Called
 INFO - 2014-08-13 20:47:38 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2014-08-13 20:50:12 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home"
-INFO - 2014-08-13 20:50:12 --> Fuel\Core\Request::execute - Called
-INFO - 2014-08-13 20:50:12 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2014-08-13 20:50:23 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
-INFO - 2014-08-13 20:50:23 --> Fuel\Core\Request::execute - Called
-INFO - 2014-08-13 20:50:23 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2014-08-13 20:50:24 --> 2014-08-13 20:50:13
-INFO - 2014-08-13 20:50:33 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
-INFO - 2014-08-13 20:50:33 --> Fuel\Core\Request::execute - Called
-INFO - 2014-08-13 20:50:33 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2014-08-13 20:50:34 --> 2014-08-13 20:50:24
-INFO - 2014-08-13 20:50:43 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
-INFO - 2014-08-13 20:50:43 --> Fuel\Core\Request::execute - Called
-INFO - 2014-08-13 20:50:43 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2014-08-13 20:50:44 --> 2014-08-13 20:50:34
-INFO - 2014-08-13 20:50:53 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
-INFO - 2014-08-13 20:50:53 --> Fuel\Core\Request::execute - Called
-INFO - 2014-08-13 20:50:53 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2014-08-13 20:50:54 --> 2014-08-13 20:50:44
-INFO - 2014-08-13 20:51:03 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
-INFO - 2014-08-13 20:51:03 --> Fuel\Core\Request::execute - Called
-INFO - 2014-08-13 20:51:03 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2014-08-13 20:51:04 --> 2014-08-13 20:50:54
-INFO - 2014-08-13 20:51:13 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
-INFO - 2014-08-13 20:51:13 --> Fuel\Core\Request::execute - Called
-INFO - 2014-08-13 20:51:13 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2014-08-13 20:51:14 --> 2014-08-13 20:51:04
-INFO - 2014-08-13 20:51:23 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
-INFO - 2014-08-13 20:51:23 --> Fuel\Core\Request::execute - Called
-INFO - 2014-08-13 20:51:23 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2014-08-13 20:51:24 --> 2014-08-13 20:51:14
-INFO - 2014-08-13 20:51:33 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
-INFO - 2014-08-13 20:51:33 --> Fuel\Core\Request::execute - Called
-INFO - 2014-08-13 20:51:33 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2014-08-13 20:51:34 --> 2014-08-13 20:51:24
-INFO - 2014-08-13 20:51:43 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
-INFO - 2014-08-13 20:51:43 --> Fuel\Core\Request::execute - Called
-INFO - 2014-08-13 20:51:43 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2014-08-13 20:51:44 --> 2014-08-13 20:51:34
-INFO - 2014-08-13 20:51:53 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
-INFO - 2014-08-13 20:51:53 --> Fuel\Core\Request::execute - Called
-INFO - 2014-08-13 20:51:53 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2014-08-13 20:51:54 --> 2014-08-13 20:51:44
-INFO - 2014-08-13 20:52:03 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
-INFO - 2014-08-13 20:52:03 --> Fuel\Core\Request::execute - Called
-INFO - 2014-08-13 20:52:03 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2014-08-13 20:52:04 --> 2014-08-13 20:51:54
+INFO - 2014-08-13 20:47:39 --> 2014-08-13 20:47:29
+INFO - 2014-08-13 20:47:39 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
+INFO - 2014-08-13 20:47:39 --> Fuel\Core\Request::execute - Called
+INFO - 2014-08-13 20:47:39 --> Fuel\Core\Request::execute - Setting main Request
+INFO - 2014-08-13 20:47:40 --> 2014-08-13 20:47:30
+INFO - 2014-08-13 20:47:48 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
+INFO - 2014-08-13 20:47:48 --> Fuel\Core\Request::execute - Called
+INFO - 2014-08-13 20:47:48 --> Fuel\Core\Request::execute - Setting main Request
+INFO - 2014-08-13 20:47:49 --> 2014-08-13 20:47:39
+INFO - 2014-08-13 20:47:49 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
+INFO - 2014-08-13 20:47:49 --> Fuel\Core\Request::execute - Called
+INFO - 2014-08-13 20:47:49 --> Fuel\Core\Request::execute - Setting main Request
+INFO - 2014-08-13 20:47:50 --> 2014-08-13 20:47:40
+INFO - 2014-08-13 20:47:58 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
+INFO - 2014-08-13 20:47:58 --> Fuel\Core\Request::execute - Called
+INFO - 2014-08-13 20:47:58 --> Fuel\Core\Request::execute - Setting main Request
+INFO - 2014-08-13 20:47:59 --> 2014-08-13 20:47:49
+INFO - 2014-08-13 20:47:59 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
+INFO - 2014-08-13 20:47:59 --> Fuel\Core\Request::execute - Called
+INFO - 2014-08-13 20:47:59 --> Fuel\Core\Request::execute - Setting main Request
+INFO - 2014-08-13 20:48:00 --> 2014-08-13 20:47:50
+INFO - 2014-08-13 20:48:08 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
+INFO - 2014-08-13 20:48:08 --> Fuel\Core\Request::execute - Called
+INFO - 2014-08-13 20:48:08 --> Fuel\Core\Request::execute - Setting main Request
+INFO - 2014-08-13 20:48:09 --> 2014-08-13 20:47:59
+INFO - 2014-08-13 20:48:09 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
+INFO - 2014-08-13 20:48:09 --> Fuel\Core\Request::execute - Called
+INFO - 2014-08-13 20:48:09 --> Fuel\Core\Request::execute - Setting main Request
+INFO - 2014-08-13 20:48:10 --> 2014-08-13 20:48:00
+INFO - 2014-08-13 20:48:18 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
+INFO - 2014-08-13 20:48:18 --> Fuel\Core\Request::execute - Called
+INFO - 2014-08-13 20:48:18 --> Fuel\Core\Request::execute - Setting main Request
+INFO - 2014-08-13 20:48:19 --> 2014-08-13 20:48:09
+INFO - 2014-08-13 20:48:19 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
+INFO - 2014-08-13 20:48:19 --> Fuel\Core\Request::execute - Called
+INFO - 2014-08-13 20:48:19 --> Fuel\Core\Request::execute - Setting main Request
+INFO - 2014-08-13 20:48:20 --> 2014-08-13 20:48:10
+INFO - 2014-08-13 20:48:28 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
+INFO - 2014-08-13 20:48:28 --> Fuel\Core\Request::execute - Called
+INFO - 2014-08-13 20:48:28 --> Fuel\Core\Request::execute - Setting main Request
+INFO - 2014-08-13 20:48:29 --> 2014-08-13 20:48:19
+INFO - 2014-08-13 20:48:31 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
+INFO - 2014-08-13 20:48:31 --> Fuel\Core\Request::execute - Called
+INFO - 2014-08-13 20:48:31 --> Fuel\Core\Request::execute - Setting main Request
+INFO - 2014-08-13 20:48:32 --> 2014-08-13 20:48:20
+INFO - 2014-08-13 20:48:38 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
+INFO - 2014-08-13 20:48:38 --> Fuel\Core\Request::execute - Called
+INFO - 2014-08-13 20:48:38 --> Fuel\Core\Request::execute - Setting main Request
+INFO - 2014-08-13 20:48:39 --> 2014-08-13 20:48:29
+INFO - 2014-08-13 20:48:48 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
+INFO - 2014-08-13 20:48:48 --> Fuel\Core\Request::execute - Called
+INFO - 2014-08-13 20:48:48 --> Fuel\Core\Request::execute - Setting main Request
+INFO - 2014-08-13 20:48:49 --> 2014-08-13 20:48:39
+INFO - 2014-08-13 20:48:58 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "home/reload"
+INFO - 2014-08-13 20:48:58 --> Fuel\Core\Request::execute - Called
+INFO - 2014-08-13 20:48:58 --> Fuel\Core\Request::execute - Setting main Request
+INFO - 2014-08-13 20:48:59 --> 2014-08-13 20:48:49

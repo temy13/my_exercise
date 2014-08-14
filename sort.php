@@ -1,24 +1,32 @@
 <?php
 
-$array = array( 91,5,4,1,7,8,3,878,1,12,135,61,1235,52, );
-echo "first:";
-showarray($array);
-$array_count = count($array);
-bubble($array,$array_count);
-shell($array,$array_count);
-$quick_array = quick($array,0,$array_count-1);
-echo "quick:";
-showarray($quick_array);
-$marge_array = marge($array,0,$array_count-1);
-echo "marge:";
-showarray($marge_array);
+$first_array = array( 91,5,4,1,7,8,3,878,1,12,135,61,1235,52, );
+
+echo "First:";
+print_r($first_array);
+$array_count = count($first_array);
+
+echo "Bubble:";
+$bubble_array = Bubble($first_array,$array_count);
+print_r($bubble_array);
+
+echo "Shell:";
+$shell_array = Shell($first_array,$array_count);
+print_r($shell_array);
+
+echo "Quick:";
+$quick_array = Quick($first_array,0,$array_count-1);
+print_r($quick_array);
+
+echo "Marge:";
+$marge_array = Marge($first_array,0,$array_count-1);
+print_r($marge_array);
 
 
 
 
 function swap($array,$i,$j){
 
-	//echo $i."&".$j.">>".$array[$i]."<>".$array[$j]."\n";
 	$temp = $array[$i];
 	$array[$i] = $array[$j];
 	$array[$j] = $temp;
@@ -26,42 +34,46 @@ function swap($array,$i,$j){
 
 }
 
-function bubble($array,$array_count){
+function TradeCheck($array,$i,$j){
 
-	echo "bubble:";
-	for($i = 0; $i < $array_count; $i++):
-		for($j = 0; $j < $array_count; $j++):
-			if($array[$i] < $array[$j])
-				$array = swap($array,$i,$j);
-		endfor;
-	endfor;
-	
-	showarray($array);
+	if($array[$i] > $array[$j])
+		$array = swap($array,$i,$j);
+
+	return $array;
+
 }
+//バブルソート
+function Bubble($array,$array_count){
 
-function shell($array,$array_count){
+	for($i = 0; $i < $array_count; $i++){
+		for($j = $array_count-1; $j > $i; $j--){
+			$array = TradeCheck($array,$i,$j);
+		}
+	}
+	return $array;
+}
+//シェルソート
+function Shell($array,$array_count){
 
-	echo "shell:";
-	for($part = $array_count/2; (int)($part) > 0; $part /=2):
+	for($part = $array_count/2; (int)($part) > 0; $part /=2){
 			$part = (int)$part;
-			$array = insert_Sort($array,$part,$array_count);
-	endfor;
-	showarray($array);
+			$array = InsertSort($array,$part,$array_count);
+	}
+	return $array;
 }
+//単純挿入ソート
+function InsertSort($array,$part,$array_count){
 
-function insert_Sort($array,$part,$array_count){
-
-	for($i = 0; $i < $array_count-$part; $i++):
-		for($j = $i+$part; $j < $array_count; $j += $part):
-			if($array[$i] > $array[$j])
-				$array = swap($array,$i,$j);
-		endfor;
-	endfor;
+	for($i = 0; $i < $array_count-$part; $i++){
+		for($j = $i+$part; $j < $array_count; $j += $part){
+			$array = TradeCheck($array,$i,$j);
+		}	
+	}
 
 	return $array;
 }
 //クイックソート　再帰的
-function quick($array,$left,$right){
+function Quick($array,$left,$right){
 
 	$l = $left;
 	$r = $right;
@@ -84,8 +96,8 @@ function quick($array,$left,$right){
 	}
 	return $array;
 }
-
-function marge($array,$left,$right){
+//マージソート
+function Marge($array,$left,$right){
 
 	//要素が一つだったら戻す
 	if($left >= $right){
@@ -102,26 +114,20 @@ function marge($array,$left,$right){
 		if($left_array[0] < $right_array[0]){
 			$return_array[] = array_shift($left_array);
 			$l--;
-		}else{
+		}else if($left_array[0] >= $right_array[0]){
 			$return_array[] = array_shift($right_array);
 			$r--;
 		}
+
 		if($l <= 0 ){
 			$return_array = array_merge($return_array,$right_array);
 			break;
 		}
+
 		if($r <= 0 ){
 			$return_array = array_merge($return_array,$left_array);
 			break;
 		}
 	}
 	return $return_array;
-}
-
-function showarray($array){
-
-	foreach ($array as $key => $value) {
-		echo "[".$value."]";
-	}
-	echo "\n";
 }
