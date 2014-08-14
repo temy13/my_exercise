@@ -27,7 +27,7 @@ class Controller_Home extends Controller_Template {
 	public function action_create(){
 
 		if(Input::method() == 'POST'){
-			$notice = "ツイートしました"
+			$notice = "ツイートしました";
 			$image_path = null;
 			//画像保存
 			Upload::process(array('path' => Config::get('upload.path')));
