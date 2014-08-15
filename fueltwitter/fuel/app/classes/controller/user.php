@@ -15,12 +15,12 @@ class Controller_User extends Controller_Template {
 		$password = Input::post('password', null);
 		$email = Input::post('email', null);
 		$errmsg = " ";
-		if ($username !== null && $password !== null) 
-			$errmsg = $this->create_check($username,$password,$email);
+		if ($username !== null && $password !== null && $email !== null) 
+			$errmsg = $this->create_check();
 		// ユーザー作成
 		$this->template->title = 'ユーザー作成';
 		$this->template->content = View::forge('user/create');
-		$this->template->content->set_safe('errmsg', "");
+		$this->template->content->set_safe('errmsg', $errmsg);
 	}
 
 	private function validate_create(){
@@ -36,7 +36,7 @@ class Controller_User extends Controller_Template {
 		return $validation;
 	}
 
-	public function create_check($username,$password){
+	public function create_check(){
 		$validation = $this->validate_create();
 		$errors = $validation->error();
 		if (!empty($errors)) 
@@ -44,7 +44,7 @@ class Controller_User extends Controller_Template {
 
 		$auth = Auth::instance();
 		$input = $validation->input();
-		if ($auth->create_user($username, $password, $email)) 
+		if($auth->create_user($input['username'], $input['password'], $input['email']))
 			Response::redirect('login/login');
 		
 		return 'ユーザー作成に失敗しました。';
