@@ -9,11 +9,13 @@ class Controller_Login extends Controller_Template {
 
     public function action_login(){
         // ログイン処理
-        $username = Input::post('username', null);
-        $password = Input::post('password', null);
         $errmsg = " ";
-        if ($username !== null && $password !== null) 
-            $errmsg = $this->login_check($username, $password);
+        if (Input::post()){
+            $errmsg = $this->login_check(
+                Input::post('username', null), 
+                Input::post('password', null)
+            );
+        }
 
         $this->template->title = 'ログイン';
         $this->template->content = View::forge('login/login');
