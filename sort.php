@@ -3,22 +3,14 @@ $first_array = array( 91,5,4,1,7,8,3,878,1,12,135,61,1235,52, );
 echo "First:";　
 print_r($first_array);
 $array_count = count($first_array);
-
 echo "Bubble:";
-$bubble_array = Bubble($first_array, $array_count);
-print_r($bubble_array);
-
+print_r(Bubble($first_array, $array_count));
 echo "Shell:";
-$shell_array = Shell($first_array, $array_count);
-print_r($shell_array);
-
+print_r(Shell($first_array, $array_count));
 echo "Quick:";
-$quick_array = Quick($first_array, 0, $array_count-1);
-print_r($quick_array);
-
-echo "Marge:";
-$marge_array = Marge($first_array, 0, $array_count-1);
-print_r($marge_array);
+print_r(Quick($first_array, 0, $array_count-1));
+echo "Merge:";
+print_r( Merge($first_array, 0, $array_count-1));
 
 function swap($array, $i, $j){
     $temp = $array[$i];
@@ -27,7 +19,7 @@ function swap($array, $i, $j){
     return $array;
 }
 
-function TradeCheck($array, $i, $j){
+function TradeOrNot($array, $i, $j){
     if($array[$i] > $array[$j])
         $array = swap($array,$i,$j);
 
@@ -37,7 +29,7 @@ function TradeCheck($array, $i, $j){
 function Bubble($array, $array_count){
     for($i = 0; $i < $array_count; $i++){
         for($j = $array_count-1; $j > $i; $j--){
-            $array = TradeCheck($array,$i,$j);
+            $array = TradeOrNot($array,$i,$j);
         }
     }
     return $array;
@@ -54,7 +46,7 @@ function Shell($array, $array_count){
 function InsertSort($array, $part, $array_count){
     for($i = 0; $i < $array_count-$part; $i++){
         for($j = $i+$part; $j < $array_count; $j += $part){
-            $array = TradeCheck($array,$i,$j);
+            $array = TradeOrNot($array,$i,$j);
         }	
     }
     return $array;
@@ -73,7 +65,8 @@ function Quick($array, $left, $right){
         if($l >= $r) break;
         $array = swap($array, $l, $r);
         //次の探索へ
-        $l++; $r--;
+        $l++; 
+        $r--;
     }
     if($l - $left > 1)
         $array = quick($array, $left, $r);
@@ -83,7 +76,7 @@ function Quick($array, $left, $right){
     return $array;
 }
 //マージソート
-function Marge($array, $left, $right){
+function Merge($array, $left, $right){
     //要素が一つだったら戻す
     if($left >= $right){
         $return_array = array($array[$left]);
@@ -92,25 +85,29 @@ function Marge($array, $left, $right){
     $center = (int)(($left+$right)/2);
     $left_array = marge($array, $left, $center);
     $right_array = marge($array, $center+1, $right);
-    $return_array = array();
-    $l = count($left_array); $r = count($right_array);
+    return CombineLeftAndRightArray($left_array, $right_array);
+}
+function CombineLeftAndRightArray($left_array, $right_array){
+    $l = count($left_array); 
+    $r = count($right_array);
+    $combined_array = array();
     //結合した配列内でソート
-    for($n = $left; $n < $right; $n++){
+    for($i = $left; $i < $right; $i++){
         if($left_array[0] < $right_array[0]){
-            $return_array[] = array_shift($left_array);
+            $combined_array[] = array_shift($left_array);
             $l--;
         }elseif($left_array[0] >= $right_array[0]){
-            $return_array[] = array_shift($right_array);
+            $combined_array[] = array_shift($right_array);
             $r--;
         }
         if($l <= 0 ){
-            $return_array = array_merge($return_array, $right_array);
+            $combined_array = array_merge($combined_array, $right_array);
             break;
         }
         if($r <= 0 ){
-            $return_array = array_merge($return_array, $left_array);
+            $combined_array = array_merge($combined_array, $left_array);
             break;
         }
     }
-    return $return_array;
+    return $combined_array;
 }
