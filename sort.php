@@ -1,6 +1,6 @@
 <?php
 $first_array = array( 91,5,4,1,7,8,3,878,1,12,135,61,1235,52, );
-echo "First:";　
+echo "First:";
 print_r($first_array);
 $array_count = count($first_array);
 echo "Bubble:";
@@ -37,8 +37,8 @@ function Bubble($array, $array_count){
 //シェルソート
 function Shell($array, $array_count){
     for($part = $array_count/2; (int)($part) > 0; $part /=2){
-            $part = (int)$part;
-            $array = InsertSort($array,$part,$array_count);
+        $part = (int)$part;
+        $array = InsertSort($array,$part,$array_count);
     }
     return $array;
 }
@@ -68,10 +68,11 @@ function Quick($array, $left, $right){
         $l++; 
         $r--;
     }
-    if($l - $left > 1)
-        $array = quick($array, $left, $r);
+    if($l - $left > 1){
+        $array = Quick($array, $left, $r);
+    }
     if($right - $r > 1){
-        $array = quick($array, $l, $right);
+        $array = Quick($array, $l, $right);
     }
     return $array;
 }
@@ -83,31 +84,25 @@ function Merge($array, $left, $right){
         return $return_array;
     }
     $center = (int)(($left+$right)/2);
-    $left_array = marge($array, $left, $center);
-    $right_array = marge($array, $center+1, $right);
-    return CombineLeftAndRightArray($left_array, $right_array);
+    $left_array = Merge($array, $left, $center);
+    $right_array = Merge($array, $center+1, $right);
+    return MergeLeftAndRightArray($left_array, $right_array);
 }
-function CombineLeftAndRightArray($left_array, $right_array){
-    $l = count($left_array); 
-    $r = count($right_array);
-    $combined_array = array();
+function MergeLeftAndRightArray($left_array, $right_array){
+    $merged_array = array();
     //結合した配列内でソート
-    for($i = $left; $i < $right; $i++){
+    while(!empty($left_array) && !empty($right_array)){
         if($left_array[0] < $right_array[0]){
-            $combined_array[] = array_shift($left_array);
-            $l--;
+            $merged_array[] = array_shift($left_array);
         }elseif($left_array[0] >= $right_array[0]){
-            $combined_array[] = array_shift($right_array);
-            $r--;
-        }
-        if($l <= 0 ){
-            $combined_array = array_merge($combined_array, $right_array);
-            break;
-        }
-        if($r <= 0 ){
-            $combined_array = array_merge($combined_array, $left_array);
-            break;
+            $merged_array[] = array_shift($right_array);
         }
     }
-    return $combined_array;
+    if(empty($left_array)){
+        $merged_array = array_merge($merged_array, $right_array);
+    }
+    elseif(empty($right_array)){
+        $merged_array = array_merge($merged_array, $left_array);
+    }
+    return $merged_array;
 }
