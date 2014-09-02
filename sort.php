@@ -1,43 +1,41 @@
 <?php
-$first_array = array( 91,5,4,1,7,8,3,878,1,12,135,61,1235,52, );
-echo "First:";
-print_r($first_array);
-$array_count = count($first_array);
+
+require "my_sort_helper.php";
+
+$unsorted_array = array( 91,5,4,1,7,8,3,878,1,12,135,61,1235,52, );
+echo "UnSorted:";
+print_r($unsorted_array);
+//各種ソートによる出力.
+//こちらからはSortしてほしい配列を投げるだけにする
 echo "Bubble:";
-print_r(Bubble($first_array, $array_count));
+print_r(BubbleSort($unsorted_array));
+
 echo "Shell:";
-print_r(Shell($first_array, $array_count));
+print_r(ShellSort($unsorted_array));
+
 echo "Quick:";
-print_r(Quick($first_array, 0, $array_count-1));
+print_r(QuickSort($unsorted_array));
+
 echo "Merge:";
-print_r( Merge($first_array, 0, $array_count-1));
+print_r(MergeSort($unsorted_array));
 
-function swap($array, $i, $j){
-    $temp = $array[$i];
-    $array[$i] = $array[$j];
-    $array[$j] = $temp;
-    return $array;
-}
 
-function TradeOrNot($array, $i, $j){
-    if($array[$i] > $array[$j])
-        $array = swap($array,$i,$j);
-
-    return $array;
-}
 //バブルソート
-function Bubble($array, $array_count){
+function BubbleSort($array){
+    $array_count = count($array);
     for($i = 0; $i < $array_count; $i++){
         for($j = $array_count-1; $j > $i; $j--){
-            $array = TradeOrNot($array,$i,$j);
+            $array = SwapIfGraterThan($array,$i,$j);
         }
     }
     return $array;
 }
 //シェルソート
-function Shell($array, $array_count){
+function ShellSort($array){
+    $array_count = count($array);
     for($part = $array_count/2; (int)($part) > 0; $part /=2){
         $part = (int)$part;
+        //間隔partをあけて単純挿入ソート
         $array = InsertSort($array,$part,$array_count);
     }
     return $array;
@@ -46,63 +44,51 @@ function Shell($array, $array_count){
 function InsertSort($array, $part, $array_count){
     for($i = 0; $i < $array_count-$part; $i++){
         for($j = $i+$part; $j < $array_count; $j += $part){
-            $array = TradeOrNot($array,$i,$j);
+            $array = SwapIfGraterThan($array,$i,$j);
         }	
     }
     return $array;
 }
-//クイックソート　再帰的
-function Quick($array, $left, $right){
+//クイックソート　
+function QuickSort($array){
+    return QuickInner($array, 0, count($array)-1);
+}
+//再帰的
+function QuickInner($array, $left, $right){
     $l = $left;
     $r = $right;
     $pivot = $array[(int)(($left+$right)/2)];
     while($l < $r){
-        //tradeする場所の探索
-        while($pivot > $array[$l])
-            $l++;
-        while($pivot < $array[$r])
-            $r--;
+        //swapする場所の探索
+        $l = LeftSwapPoint($pivot,$array,$l);
+        $r = RightSwapPoint($pivot,$array,$r);
         if($l >= $r) break;
-        $array = swap($array, $l, $r);
+        $array = Swap($array, $l, $r);
         //次の探索へ
         $l++; 
         $r--;
     }
     if($l - $left > 1){
-        $array = Quick($array, $left, $r);
+        $array = QuickInner($array, $left, $r);
     }
     if($right - $r > 1){
-        $array = Quick($array, $l, $right);
+        $array = QuickInner($array, $l, $right);
     }
     return $array;
 }
+
 //マージソート
-function Merge($array, $left, $right){
+function MergeSort($array){
+    return MergeInner($array, 0, count($array)-1);
+}
+function MergeInner($array, $left, $right){
     //要素が一つだったら戻す
     if($left >= $right){
         $return_array = array($array[$left]);
         return $return_array;
     }
     $center = (int)(($left+$right)/2);
-    $left_array = Merge($array, $left, $center);
-    $right_array = Merge($array, $center+1, $right);
+    $left_array = MergeInner($array, $left, $center);
+    $right_array = MergeInner($array, $center+1, $right);
     return MergeLeftAndRightArray($left_array, $right_array);
-}
-function MergeLeftAndRightArray($left_array, $right_array){
-    $merged_array = array();
-    //結合した配列内でソート
-    while(!empty($left_array) && !empty($right_array)){
-        if($left_array[0] < $right_array[0]){
-            $merged_array[] = array_shift($left_array);
-        }elseif($left_array[0] >= $right_array[0]){
-            $merged_array[] = array_shift($right_array);
-        }
-    }
-    if(empty($left_array)){
-        $merged_array = array_merge($merged_array, $right_array);
-    }
-    elseif(empty($right_array)){
-        $merged_array = array_merge($merged_array, $left_array);
-    }
-    return $merged_array;
 }
