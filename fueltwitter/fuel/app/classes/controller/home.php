@@ -8,7 +8,7 @@ class Controller_Home extends Controller_Template {
                 Response::redirect('login/login');
         Config::load('upload', true);
     }
-
+    //全ツイートの表示
     public function action_index(){
          
         $tweets = Model_Tweets::find(array(
@@ -26,7 +26,7 @@ class Controller_Home extends Controller_Template {
     }
 
     
-
+    //tweetの作成
     public function action_create(){
 
         if(Input::method() == 'POST'){
@@ -50,7 +50,6 @@ class Controller_Home extends Controller_Template {
         Session::set_flash('notice', $notice);
         Response::redirect('home');
     }
-
     public function get_image_path(){
         Upload::process(array('path' => Config::get('upload.path')));
         if (Upload::is_valid()) {
@@ -58,7 +57,6 @@ class Controller_Home extends Controller_Template {
         }
         return null;
     }
-
     public function image_save(){
     	Upload::process(array('path' => Config::get('upload.path')));
         if(Upload::is_valid()){
@@ -67,7 +65,7 @@ class Controller_Home extends Controller_Template {
     }
 
 
-    //ajaxによるリロード
+    //ajaxによるリロード.最終更新日時より後のツイートを取得する
     public function action_reload(){
         $last_update = Input::post('last');
        

@@ -6,8 +6,6 @@ class Controller_User extends Controller_Template {
     }
 
     public function action_create(){
-
-        
         $errmsg = " ";
         if (Input::post()) 
             $errmsg = $this->create_check();
@@ -31,7 +29,6 @@ class Controller_User extends Controller_Template {
         $validation->run();
         return $validation;
     }
-
     public function create_check(){
         //validateチェック
         $validation = $this->validate_create();

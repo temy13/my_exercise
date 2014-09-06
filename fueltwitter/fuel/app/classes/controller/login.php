@@ -21,20 +21,20 @@ class Controller_Login extends Controller_Template {
         $this->template->content = View::forge('login/login');
         $this->template->content->set_safe('errmsg', $errmsg);
     }
-
     public function login_check($username, $password){
         $validation = $this->validate_login();
         $errors = $validation->error();
-        if (!empty($errors)) 
+        if (!empty($errors)){
             return $validation->show_errors();
+        }
 		
         $auth = Auth::instance(); // ログイン認証を行う
-        if ($auth->login($username, $password)) 
+        if ($auth->login($username, $password)){
             Response::redirect('home');// ログイン成功
+        }
 		
         return "ログインに失敗しました。";	 
     }
-
     private function validate_login(){
         // 入力チェック
         $validation = Validation::forge();

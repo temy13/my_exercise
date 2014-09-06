@@ -13,13 +13,15 @@
 			'action' => '/home/create',
 			'name'=>'upload',
 			'enctype'=>'multipart/form-data',
-			'method'=>'post')); ?>
+			'method'=>'post')); 
+		?>
 	<div>
 		<?php echo Form::textarea('content', 'ここにつぶやく内容をどうぞ', array(
 				'style' => 'border-color: #000000;',
 				'rows' => 6,
 				'cols' => 30
-			)); ?>
+			));
+			?>
 	</div>
 	<div>
 		<?php echo Form::file('upload',array('class'=>'span4')); ?>
