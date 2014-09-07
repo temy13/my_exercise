@@ -35,7 +35,7 @@ function reload(){
                 var li_content = createNewLi(datas["tweet"][key],datas['user_id'],datas['base_url']);
                    	$("#timeline").prepend($(li_content));
                    })
-             },
+         },
         error: function(res){
            	console.log("error");
         }
